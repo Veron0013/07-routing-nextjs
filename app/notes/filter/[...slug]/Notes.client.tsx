@@ -13,8 +13,13 @@ import NoteList from "@/components/NoteList/NoteList"
 import Modal from "@/components/Modal/Modal"
 import NoteForm from "@/components/NoteForm/NoteForm"
 
-const NotesClient = () => {
+type Props = {
+	tag: string
+}
+
+const NotesClient = ({ tag }: Props) => {
 	const [notehubQuery, setNoteHubQuery] = useState("")
+	//const [filterValue, setFilterValue] = useState("")
 	const [currentPage, setCurrentPage] = useState<number>(1)
 	const [total_pages, setTotalPages] = useState<number>(0)
 
@@ -22,7 +27,8 @@ const NotesClient = () => {
 	const [noteObject, setNoteObject] = useState<Note | null>(null)
 
 	const fetchQueryData = async () => {
-		const res: NotesData = await fetchNotes(createQueryParams(notehubQuery, currentPage))
+		const res: NotesData = await fetchNotes(createQueryParams(notehubQuery, currentPage, tag))
+		console.log(res)
 		if (!res.notes.length) {
 			toastMessage(MyToastType.error, "No matches on this request. Please try another one")
 		}
@@ -31,7 +37,7 @@ const NotesClient = () => {
 	}
 
 	const { data } = useQuery({
-		queryKey: ["notesQuery", notehubQuery, currentPage],
+		queryKey: ["notesQuery", notehubQuery, currentPage, tag],
 		queryFn: async () => fetchQueryData(),
 		placeholderData: keepPreviousData,
 		refetchOnMount: false,

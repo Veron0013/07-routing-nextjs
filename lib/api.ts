@@ -17,13 +17,31 @@ interface ApiQueryParams {
 	params: SearchParams
 }
 
-export const createQueryParams = (search = "", page = 1): ApiQueryParams => ({
-	params: {
+export type Category = {
+	id: string
+	name: string
+	description: string
+	createdAt: string
+	updatedAt: string
+}
+
+export const getCategories = async (): Promise<Tag[]> => {
+	return ["Todo", "Work", "Personal", "Meeting", "Shopping"]
+}
+
+export const createQueryParams = (search = "", page = 1, tag?: string): ApiQueryParams => {
+	const params: SearchParams = {
 		search,
 		page,
 		perPage: PER_PAGE,
-	},
-})
+	}
+	console.log(tag)
+	if (tag !== "All") {
+		params.tag = tag as Tag
+	}
+
+	return { params }
+}
 
 export const fetchNotes = async (queryParams: ApiQueryParams): Promise<NotesData> => {
 	//const url: string = id === null ? MAIN_URL : `${MAIN_URL}/${id}`
