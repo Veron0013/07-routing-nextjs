@@ -17,9 +17,9 @@ export default async function Header() {
 					<li>
 						<Link href="/">Home</Link>
 					</li>
-					<li>
+					{/*<li>
 						<Link href="/notes">Notes</Link>
-					</li>
+					</li>*/}
 					<li>
 						<TagsMenu tags={categories || "Notes"} />
 					</li>

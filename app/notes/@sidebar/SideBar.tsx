@@ -1,13 +1,10 @@
+import { getCategories } from "@/lib/api"
 import css from "./Sidebar.module.css"
 
-type TagsProps = {
-	tags: string[]
-}
-
-export default function SideBar({ tags }: TagsProps) {
+export default async function SideBar() {
+	const tags: string[] = await getCategories()
 	return (
 		<div className={css.menuContainer}>
-			<button className={css.menuButton}>Notes ▾</button>
 			<ul className={css.menuList}>
 				<li className={css.menuItem} key={tags?.length + 1 || 0}>
 					<a href={`/notes/filter/All`} className={css.menuLink}>
