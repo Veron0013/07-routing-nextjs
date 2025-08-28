@@ -25,7 +25,7 @@ export type Category = {
 	updatedAt: string
 }
 
-export const getCategories = async (): Promise<Tag[]> => {
+export const getCategories = (): string[] => {
 	return ["Todo", "Work", "Personal", "Meeting", "Shopping"]
 }
 

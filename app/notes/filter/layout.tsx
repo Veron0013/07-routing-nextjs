@@ -1,7 +1,8 @@
 import { Suspense } from "react"
 import Loading from "../../loading"
 
-export default async function NotesLayout({
+//export default async function NotesLayout({
+export default function NotesLayout({
 	children,
 	sidebar,
 }: Readonly<{
@@ -10,7 +11,8 @@ export default async function NotesLayout({
 }>) {
 	return (
 		<div style={{ display: "flex", gap: "24px", flexGrow: "1" }}>
-			<Suspense fallback={<Loading />}>{sidebar}</Suspense>
+			{/*<Suspense fallback={<Loading />}>{sidebar}</Suspense>*/}
+			{sidebar}
 			{children}
 		</div>
 	)
