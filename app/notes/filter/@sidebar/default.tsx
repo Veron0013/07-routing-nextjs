@@ -12,9 +12,9 @@ export default function SidebarNotes() {
 			<div className={css.menuContainer}>
 				<ul className={css.menuList}>
 					<li className={css.menuItem} key={tags?.length + 1 || 0}>
-						<a href={`/notes/filter/All`} className={css.menuLink}>
+						<Link href={`/notes/filter/All`} className={css.menuLink}>
 							All notes
-						</a>
+						</Link>
 					</li>
 					{tags?.length > 0 &&
 						tags.map((item: string, index: number) => {
