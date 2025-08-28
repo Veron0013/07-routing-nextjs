@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import Loading from "../loading"
+import Loading from "../../loading"
 
 export default async function NotesLayout({
 	children,
@@ -15,3 +15,5 @@ export default async function NotesLayout({
 		</div>
 	)
 }
+//app/notes/filter/@sidebar/default.tsx
+//app/notes/layout.tsx

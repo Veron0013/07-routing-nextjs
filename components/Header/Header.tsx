@@ -1,7 +1,7 @@
 import Link from "next/link"
 import React from "react"
 import css from "@/components/Header/Header.module.css"
-import TagsMenu from "@/app/tagsMenu/page"
+import TagsMenu from "@/components/tagsMenu/page"
 
 export default async function Header() {
 	return (
