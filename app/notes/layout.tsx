@@ -7,7 +7,6 @@ export default async function NotesLayout({
 }: Readonly<{
 	children: React.ReactNode
 	sidebar: React.ReactNode
-	modal: React.ReactNode
 }>) {
 	return (
 		<div style={{ display: "flex", gap: "24px", flexGrow: "1" }}>
