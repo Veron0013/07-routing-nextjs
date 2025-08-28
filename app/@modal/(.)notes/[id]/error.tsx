@@ -17,5 +17,3 @@ const Error = ({ error }: Props) => {
 }
 
 export default Error
-//app / notes / filter / [...slug] / error.tsx
-//app/@modal/(.)notes/[id]/page.tsx

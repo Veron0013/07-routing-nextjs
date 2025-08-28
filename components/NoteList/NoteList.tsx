@@ -10,9 +10,10 @@ import Link from "next/link"
 interface NoteListProps {
 	onSelect: (noteObjectSelected: Note) => void
 	notes: Note[]
+	tag: string
 }
 
-export default function NoteList({ notes, onSelect }: NoteListProps) {
+export default function NoteList({ notes, onSelect, tag }: NoteListProps) {
 	const queryClient = useQueryClient()
 	const [showConfirm, setShowConfirm] = useState(false)
 	const [noteSelectedId, setNoteSelectedId] = useState<NoteId | null>(null)
@@ -72,7 +73,15 @@ export default function NoteList({ notes, onSelect }: NoteListProps) {
 									<button className={`${css.button} ${css.edit}`} id="editButton">
 										Edit
 									</button>
-									<Link className={`${css.button} ${css.details}`} href={`/notes/${item.id}`}>
+									{/*href={{`/notes/${item.id}`, query: { from: slug.join("/") }>*/}
+
+									<Link
+										className={`${css.button} ${css.details}`}
+										href={{
+											pathname: `/notes/${item.id}`,
+											query: { from: tag },
+										}}
+									>
 										View details
 									</Link>
 								</div>

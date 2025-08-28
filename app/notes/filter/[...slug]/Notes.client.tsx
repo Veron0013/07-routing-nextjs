@@ -28,7 +28,7 @@ const NotesClient = ({ tag }: Props) => {
 
 	const fetchQueryData = async () => {
 		const res: NotesData = await fetchNotes(createQueryParams(notehubQuery, currentPage, tag))
-		console.log(res)
+		//console.log(res)
 		if (!res.notes.length) {
 			toastMessage(MyToastType.error, "No matches on this request. Please try another one")
 		}
@@ -86,7 +86,7 @@ const NotesClient = ({ tag }: Props) => {
 			</header>
 			{/*{isError && <ErrorMessage />}
 			{isLoading && <Loader />}*/}
-			{data && data?.notes?.length > 0 && <NoteList notes={data.notes} onSelect={handleNoteClick} />}
+			{data && data?.notes?.length > 0 && <NoteList notes={data.notes} onSelect={handleNoteClick} tag={tag} />}
 			{isModalOpen && (
 				<Modal onClose={closeModal}>
 					<NoteForm onClose={closeModal} noteObject={noteObject} />

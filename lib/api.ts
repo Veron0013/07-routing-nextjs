@@ -35,7 +35,7 @@ export const createQueryParams = (search = "", page = 1, tag?: string): ApiQuery
 		page,
 		perPage: PER_PAGE,
 	}
-	console.log(tag)
+	//console.log(tag)
 	if (tag !== "All") {
 		params.tag = tag as Tag
 	}

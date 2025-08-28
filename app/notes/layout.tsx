@@ -1,15 +1,17 @@
-import SideBar from "./@sidebar/SideBar"
+import { Suspense } from "react"
+import Loading from "../loading"
 
 export default async function NotesLayout({
 	children,
+	sidebar,
 }: Readonly<{
 	children: React.ReactNode
+	sidebar: React.ReactNode
+	modal: React.ReactNode
 }>) {
 	return (
 		<div style={{ display: "flex", gap: "24px", flexGrow: "1" }}>
-			<aside>
-				<SideBar />
-			</aside>
+			<Suspense fallback={<Loading />}>{sidebar}</Suspense>
 			{children}
 		</div>
 	)
