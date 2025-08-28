@@ -1,5 +1,5 @@
-import { Suspense } from "react"
-import Loading from "../../loading"
+//import { Suspense } from "react"
+//import Loading from "../../loading"
 
 //export default async function NotesLayout({
 export default function NotesLayout({
