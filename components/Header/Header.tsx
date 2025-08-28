@@ -2,11 +2,8 @@ import Link from "next/link"
 import React from "react"
 import css from "@/components/Header/Header.module.css"
 import TagsMenu from "@/app/tagsMenu/page"
-import { getCategories } from "@/lib/api"
 
 export default async function Header() {
-	const categories: string[] = await getCategories()
-
 	return (
 		<header className={css.header}>
 			<Link href="/" aria-label="Home">
@@ -21,7 +18,7 @@ export default async function Header() {
 						<Link href="/notes">Notes</Link>
 					</li>*/}
 					<li>
-						<TagsMenu tags={categories || "Notes"} />
+						<TagsMenu />
 					</li>
 				</ul>
 			</nav>

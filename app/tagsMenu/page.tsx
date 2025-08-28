@@ -4,11 +4,9 @@ import Link from "next/link"
 import css from "./TagsMenu.module.css"
 import { useEffect, useRef, useState } from "react"
 
-type TagsProps = {
-	tags: string[]
-}
+export default function TagsMenu() {
+	const tags = ["Todo", "Work", "Personal", "Meeting", "Shopping"]
 
-export default function TagsMenu({ tags }: TagsProps) {
 	const [buttonTitle, setButtonTitle] = useState("Notes")
 	const [isOpen, setIsOpen] = useState(false)
 	const menuRef = useRef<HTMLDivElement | null>(null)
