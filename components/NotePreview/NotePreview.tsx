@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query"
 import { useParams } from "next/navigation"
-import { getSingleNote } from "@/lib/api"
+import { fetchNoteById } from "@/lib/api"
 import css from "./NotePreview.module.css"
 import Loading from "@/app/loading"
 import Error from "@/app/error"
@@ -18,7 +18,7 @@ const NotePreview = () => {
 		error,
 	} = useQuery({
 		queryKey: ["notesQuery", id],
-		queryFn: () => getSingleNote(id),
+		queryFn: () => fetchNoteById(id),
 		refetchOnMount: false,
 	})
 

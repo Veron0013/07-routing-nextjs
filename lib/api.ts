@@ -65,7 +65,7 @@ export const updateNote = async (queryParams: NotePost, id: NoteId): Promise<Not
 	return response.data
 }
 
-export const getSingleNote = async (id: NoteId): Promise<Note> => {
+export const fetchNoteById = async (id: NoteId): Promise<Note> => {
 	const response = await axios.get<Note>(`${MAIN_URL}/${id}`)
 	return response.data
 }

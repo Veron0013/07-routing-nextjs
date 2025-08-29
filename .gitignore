@@ -25,6 +25,7 @@ HW-Try*.txt
 # misc
 .DS_Store
 *.pem
+*log.txt
 
 # debug
 npm-debug.log*
